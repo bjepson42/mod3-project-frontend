@@ -1,0 +1,55 @@
+body {
+  background-size: 40%;
+  background-color: white;
+  background-position: right bottom; /*Positioning*/
+  background-repeat: no-repeat; /*Prevent showing multiple background images*/
+  background-attachment: fixed;
+  font-family: 'Cinzel', serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+canvas {
+border-style: ridge;
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+
+}
+
+#header-div{
+  text-align: center;
+}
+
+#competing-for-div{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#team-row-div{
+  text-align: center;
+}
+
+#ready-set{
+  text-align: center;
+}
+
+#game-title-div{
+    text-align: center;
+}
+
+#game-answer-div{
+  text-align: center;
+
+}
+
+#button-div{
+  text-align: center;
+}
+
+#timer{
+  text-align: center;
+}

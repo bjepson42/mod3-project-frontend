@@ -3,9 +3,80 @@
   <head>
     <meta charset="utf-8">
     <title>Rails</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <h1>Pictionary FOR PAIN</h1>
+    <div id="header-div">
+      <h2>Pictionary FOR PAIN</h2>
+    </div>
+    <div class="container">
+      <div class="row" id="team-row-div">
+        <div class="col-md">
+        <h3>Team 1</h3>
+          <input type="text" name="user1" list="selectUser1"/>
+          <datalist id="selectUser1">
+            <option value="User1">User1</option>
+            <option value="User2">User2</option>
+            <option value="User3">User3</option>
+          </datalist>
+        </div>
+        <div class="col-sm">
+          <h2>VS.</h2>
+        </div>
+        <div class="col-md">
+        <h3>Team 2</h3>
+          <input type="text" name="user2" list="selectUser2"/>
+          <datalist id="selectUser2">
+            <option value="User1">User1</option>
+            <option value="User2">User2</option>
+            <option value="User3">User3</option>
+          </datalist>
+        </div>
+      </div>
+      <div class="row" id="competing-for-div">
+        <div>
+          <h3>Are Competing For:</h3>
+          <input type="text" name="product" list="productName" id="product-name-list"/>
+          <datalist id="productName">
+            <option>"Smell The Feet Of Everyone In The Room And Rank Them From Best To Worst"</option>
+            <option>"Talk Without Closing Your Mouth"</option>
+            <option>"Eat A Teaspoon Of Either Mustard, Soy Sauce Or Hot Sauce"</option>
+          </datalist>
+        </div>
+      </div>
+    </div>
+    <br>
+    <!-- <input id="hex" placeholder="enter hex color"></input> -->
+<div id="ready-set"> </div>
+    <div id="canvas-div">
+
+      <canvas id="drawing-canvas"></canvas><br>
+    </div>
+    <div id="game-title-div">
+      <input type="password" value="coffee mug" id="game-title">
+      <input type="checkbox" onclick="toggleHideTitleDiv()">
+    </div>
+    <div id="game-answer-div">
+      <input type="text" value="Enter your answer here!" id="game-answer">
+    </div>
+    <div id='button-div'>
+      <button id="start-button">Start Game</button>
+      <button id="submit-answer-button">Submit Answer</button>
+    </div>
+    <div>
+      <button id="save-button">Save Drawing</button>
+      <button id="redraw-button">Redraw Drawing</button>
+    </div>
+    <div id="timer"></div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="drawing-tool.js"></script>
     <script type="text/javascript" src="script.js"></script>
+
   </body>
 </html>
