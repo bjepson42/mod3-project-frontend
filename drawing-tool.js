@@ -26,7 +26,6 @@ var pos = { x: 0, y: 0 };
 // new position from mouse events
 function setPosition(e) {
   let drawingDiv = canvas.getBoundingClientRect();
-
   pos.x = e.x - drawingDiv.left;
   pos.y = e.y - drawingDiv.top;
 }
@@ -52,18 +51,17 @@ function draw(e) {
   ctx.stroke(); // draw it!
 }
 
-function colorPicker(e){
-    let color = black;
-debugger;
-    return color;
-};
 
 function saveDrawing(){
     //currently creates png and opens a new window
       let canvas = document.getElementById("drawing-canvas");
-      let data = canvas.toDataURL("image/png");
-      let newWindow = window.open('about:blank','image from canvas');
-      newWindow.document.write("<img src='"+data+"' alt='from canvas'/>");
+      //let data = canvas.toDataURL("image/png");
+      let data = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+      canvas.setAttribute("href", data);
+      //Save file locally
+
+      // let newWindow = window.open('about:blank','image from canvas');
+      // newWindow.document.write("<img src='"+data+"' alt='from canvas'/>");
 };
 
 function redrawLastDrawing(e){

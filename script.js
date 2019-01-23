@@ -16,6 +16,7 @@ function preTimer(seconds){
   window.setTimeout(function(){
     if (timeLeft === 3) {
       timerDiv.innerHTML = "Ready";
+      document.getElementById("game-answer").innerText = "";
       document.getElementById("start-button").hidden = true;
       document.getElementById("submit-answer-button").hidden = false;
       document.getElementById("game-answer-div").hidden = false;
@@ -65,17 +66,18 @@ function toggleHideTitleDiv() {
 
 
 function checkCompleteGame(){
-  document.getElementById("start-button").hidden = false;
-  document.getElementById("submit-answer-button").hidden = true;
-  document.getElementById("game-answer-div").hidden = true;
-  document.getElementById("game-title-div").hidden = false;
-
-  let title = document.getElementById('game-title');
-  let answer = document.getElementById('game-answer');
-  let canvasDiv = document.getElementById('ready-set');
-  if (title === answer){
-    canvasDiv.innerHTML = `You got it right!! Player ${"foo1"} wins. Player ${"foo2"} has to ${"punishment 1"}.`;
-  } else {
-    canvasDiv.innerHTML = `Wrong! Player ${"foo2"} wins. Player ${"foo1"} has to ${"punishment 1"}.`;
+  if (document.getElementById("game-answer").value != "Enter your answer here!"){
+    document.getElementById("start-button").hidden = false;
+    document.getElementById("submit-answer-button").hidden = true;
+    document.getElementById("game-answer-div").hidden = true;
+    document.getElementById("game-title-div").hidden = false;
+    let title = document.getElementById('game-title');
+    let answer = document.getElementById('game-answer');
+    let canvasDiv = document.getElementById('ready-set');
+    if(title === answer){
+      canvasDiv.innerHTML = `You got it right!! Player ${"foo1"} wins. Player ${"foo2"} has to ${"punishment 1"}.`;
+    } else {
+      canvasDiv.innerHTML = `Wrong! The answer was ${title.value}. Player ${"foo2"} wins. Player ${"foo1"} has to ${"punishment 1"}.`;
+    };
   };
 }
