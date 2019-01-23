@@ -1,11 +1,22 @@
 const lengthOfGame = 5; //length of game in seconds
+
+populateDropdowns();
+
 document.getElementById("submit-answer-button").hidden = true;
 document.getElementById("game-answer-div").hidden = true;
 document.getElementById("start-button").addEventListener("click", function(){startGame()});
 document.getElementById("submit-answer-button").addEventListener("click", function(){checkCompleteGame()});
 
+
+function populateDropdowns(){
+  populateCompetingForDropdown();
+  populateTeamDropdowns();
+  populateWord();
+};
+
+
 function startGame(e){
-  ctx.clearRect(0,0, canvas.width, canvas.height);
+  context.clearRect(0,0, canvas.width, canvas.height);
   preTimer(3);
 }
 
@@ -66,7 +77,7 @@ function toggleHideTitleDiv() {
 
 
 function checkCompleteGame(){
-  if (document.getElementById("game-answer").value != "Enter your answer here!"){
+  if (document.getElementById("game-answer").value != ""){
     document.getElementById("start-button").hidden = false;
     document.getElementById("submit-answer-button").hidden = true;
     document.getElementById("game-answer-div").hidden = true;

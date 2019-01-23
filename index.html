@@ -17,9 +17,6 @@
         <h3>Team 1</h3>
           <input type="text" name="user1" list="selectUser1"/>
           <datalist id="selectUser1">
-            <option value="User1">User1</option>
-            <option value="User2">User2</option>
-            <option value="User3">User3</option>
           </datalist>
         </div>
         <div class="col-sm">
@@ -29,20 +26,14 @@
         <h3>Team 2</h3>
           <input type="text" name="user2" list="selectUser2"/>
           <datalist id="selectUser2">
-            <option value="User1">User1</option>
-            <option value="User2">User2</option>
-            <option value="User3">User3</option>
           </datalist>
         </div>
       </div>
       <div class="row" id="competing-for-div">
         <div>
           <h3>Are Competing For:</h3>
-          <input type="text" name="product" list="productName" id="product-name-list"/>
-          <datalist id="productName">
-            <option>"Smell The Feet Of Everyone In The Room And Rank Them From Best To Worst"</option>
-            <option>"Talk Without Closing Your Mouth"</option>
-            <option>"Eat A Teaspoon Of Either Mustard, Soy Sauce Or Hot Sauce"</option>
+          <input type="text" name="product" list="betName" id="bet-name-list"/>
+          <datalist id="betName">
           </datalist>
         </div>
       </div>
@@ -59,7 +50,7 @@
       <input type="checkbox" onclick="toggleHideTitleDiv()">
     </div>
     <div id="game-answer-div">
-      <input type="text" value="Enter your answer here!" id="game-answer">
+      <input type="text" placeholder="Enter your answer here!" id="game-answer">
     </div>
     <div id='button-div'>
       <button id="start-button">Start Game</button>
