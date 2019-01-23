@@ -9,8 +9,9 @@
   </head>
   <body>
     <div id="header-div">
-      <h2>Pictionary FOR PAIN</h2>
+      Pictionary FOR PAIN
     </div>
+    <br>
     <div class="container">
       <div class="row" id="team-row-div">
         <div class="col-md">
@@ -49,10 +50,13 @@
     </div>
     <br>
     <!-- <input id="hex" placeholder="enter hex color"></input> -->
-<div id="ready-set"> </div>
     <div id="canvas-div">
-
-      <canvas id="drawing-canvas"></canvas><br>
+      <div id="ready-set">
+      </div>
+      <div id="times-up">
+      </div>
+      <canvas id="drawing-canvas">
+      </canvas><br>
     </div>
     <div id="game-title-div">
       <input type="password" value="coffee mug" id="game-title">
@@ -60,14 +64,15 @@
     </div>
     <div id="game-answer-div">
       <input type="text" value="Enter your answer here!" id="game-answer">
-    </div>
+    </div><br>
     <div id='button-div'>
       <button id="start-button">Start Game</button>
+
       <button id="submit-answer-button">Submit Answer</button>
-    </div>
+    </div id="button-2-div">
+    <button id="save-button">Save Drawing</button>
+    <button id="redraw-button">Redraw Drawing</button>
     <div>
-      <button id="save-button">Save Drawing</button>
-      <button id="redraw-button">Redraw Drawing</button>
     </div>
     <div id="timer"></div>
 

@@ -15,7 +15,7 @@ function preTimer(seconds){
   let timerDiv = document.getElementById('ready-set');
   window.setTimeout(function(){
     if (timeLeft === 3) {
-      timerDiv.innerHTML = "Ready";
+      timerDiv.innerHTML = "Ready?";
       document.getElementById("game-answer").innerText = "";
       document.getElementById("start-button").hidden = true;
       document.getElementById("submit-answer-button").hidden = false;
@@ -40,6 +40,7 @@ function preTimer(seconds){
 
 function startTimer(seconds){
   let timeLeft = seconds;
+  let timesUp = document.getElementById('times-up');
   let timerDiv = document.getElementById('timer');
   let canvasDiv = document.getElementById('ready-set');
   window.setTimeout(function(){
@@ -47,7 +48,7 @@ function startTimer(seconds){
       timerDiv.innerHTML = timeLeft + ' seconds remaining';
       startTimer(timeLeft - 1);
     } else {
-      canvasDiv.innerHTML = "Time's up! Enter your answer to see who suffers the consequences!";
+      timesUp.innerHTML = "Time's up! Enter your answer to see who suffers the consequences!";
       document.removeEventListener("mousemove", draw);
       document.removeEventListener("mousedown", setPosition);
       document.removeEventListener("mouseenter", setPosition);

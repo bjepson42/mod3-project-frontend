@@ -33,7 +33,8 @@ function setPosition(e) {
 function draw(e) {
   if (e.buttons !== 1) return; // if mouse is pressed.....
 
-  var color = 'black'; //add color picker?
+  var color = '#f4f4f0'; //add color picker?
+  //purple chalk-#c4adc9, turquoise chalk-#6fe7db, pink chalk #f2a3bd
 
   console.log(`${pos.x}, ${pos.y}, ${e.timeStamp}`);
   currentDrawing.push([[pos.x, pos.y], e.timeStamp]);
