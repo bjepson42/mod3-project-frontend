@@ -37,7 +37,7 @@ function paintTeams(){
   teamRowDiv.innerHTML = teamRow;
 
   let buttonDiv = document.getElementById('pick-your-punishment-button-div');
-  let button = `<button id="pick-your-punishment-button">Pick Your Punishment!</button>`;
+  let button = `<button id="pick-your-punishment-button">Pick Your Dare!</button>`;
   buttonDiv.innerHTML = button;
   buttonDiv.addEventListener("click", submitPickYourPunishment);
   populateTeamDropdowns();
@@ -176,7 +176,7 @@ function startTimer(seconds){
       timerDiv.innerHTML = timeLeft + ' seconds remaining';
       startTimer(timeLeft - 1);
     } else {
-      timesUp.innerHTML = "Time's up! Enter your answer to see who suffers the consequences!";
+      timesUp.innerHTML = "Time's up!";
       document.removeEventListener("mousemove", draw);
       document.removeEventListener("mousedown", setPosition);
       document.removeEventListener("mouseenter", setPosition);
