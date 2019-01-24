@@ -114,6 +114,12 @@ width: 50%;
  text-align: center;
 }
 
+#words-row-div{
+  text-align: center;
+}
+
+
+/*  try position: relative or position: absolute or try a span with display: inline-block*/
 #ready-set{
   display: inline-block;
   -webkit-box-sizing: content-box;
