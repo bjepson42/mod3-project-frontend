@@ -125,10 +125,10 @@ width: 50%;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  width: 280px;
+  /* width: 280px; */
   padding: 16px 0 0;
   border: none;
-  font: normal 90px/0.65 "Squada One", Helvetica, sans-serif;
+  font: normal 30px/0.65 "Squada One", Helvetica, sans-serif;
   color: rgba(255,255,255,1);
   text-align: center;
   -o-text-overflow: clip;
@@ -143,9 +143,9 @@ width: 50%;
 
 
 
-#game-title-div{
+/* #game-title-div{
    text-align: center;
-}
+} */
 
 #game-answer-div{
  text-align: center;
