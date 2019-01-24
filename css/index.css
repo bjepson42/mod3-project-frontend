@@ -86,7 +86,7 @@ width: 50%;
 #start-button:hover:before,#start-button:hover:after{
   width:100%;
   transition:800ms ease all;
-} */
+}
 
 #punishment-div{
    text-align: center;
@@ -165,4 +165,107 @@ width: 50%;
 
 #punishment{
   margin: 0 auto;
+}
+
+#pick-your-punishment-button {
+  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  display: block;
+  margin: 20px auto;
+  max-width: 200px;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 10px 10px;
+    color: rgba(30, 22, 54, 0.6);
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+#pick-your-punishment-button:hover {
+  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  /* display: block; */
+  margin: 20px auto;
+  max-width: 200px;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 10px 10px;
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+#pick-your-words-button {
+  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  display: block;
+  margin: 20px auto;
+  max-width: 200px;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 10px 10px;
+    color: rgba(30, 22, 54, 0.6);
+    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+#pick-your-words-button:hover {
+  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  /* display: block; */
+  margin: 20px auto;
+  max-width: 200px;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 10px 10px;
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+
+
+#submit-answer-button{
+ text-align: center;
+ background:#1AAB8A;
+ color:#fff;
+ border:none;
+ position:relative;
+ height:50px;
+ font-size:1.6em;
+ padding:0 2em;
+ cursor:pointer;
+ transition:800ms ease all;
+ outline:none;
+}
+#submit-answer-button:hover{
+ background:#fff;
+ color:#1AAB8A;
+}
+#submit-answer-button:before,button:after{
+ content:'';
+ position:absolute;
+ top:0;
+ right:0;
+ height:2px;
+ width:0;
+ background: #1AAB8A;
+ transition:400ms ease all;
+}
+#submit-answer-button:after{
+ right:inherit;
+ top:inherit;
+ left:0;
+ bottom:0;
+}
+#submit-answer-button:hover:before,#start-button:hover:after{
+ width:100%;
+ transition:800ms ease all;
 }
