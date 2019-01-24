@@ -19,16 +19,27 @@ margin-right: auto;
 width: 50%;
 }
 
-#times-up{
-  font-size: 45px;
-  text-align: center;
-  font-weight: bold;
-  color: red;
+#times-up {
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 20px;
+  overflow: hidden;
+  border: none;
+  font: normal 52px/1 "Audiowide", Helvetica, sans-serif;
+  color:#FF4136;
+  font-weight: bold;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
+
+
+
 
 #header-div h2{
  text-align: center;
@@ -268,4 +279,21 @@ width: 50%;
 #submit-answer-button:hover:before,#start-button:hover:after{
  width:100%;
  transition:800ms ease all;
+}
+
+#begin-game-button {
+color: #fff !important;
+text-transform: uppercase;
+background: #60a3bc;
+padding: 20px;
+border-radius: 50px;
+display: inline-block;
+border: none;
+}
+
+#begin-game-button:hover {
+text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
 }
