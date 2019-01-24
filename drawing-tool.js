@@ -17,9 +17,6 @@ function resize() {
 
 window.addEventListener("resize", resize);
 
-document.getElementById("save-button").addEventListener("click", saveDrawing);
-document.getElementById("redraw-button").addEventListener("click", redrawLastDrawing);
-
 // last known position
 let pos = { x: 0, y: 0 };
 

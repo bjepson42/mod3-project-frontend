@@ -25,13 +25,9 @@ function saveBetToDb(betName){
   postData(data1, "bets");
 }
 
-function saveWordsToDb(word1name, word2name){
-  //data = {name: user1name},{name: user2name};
-  //FIX ME WITH CUSTOM ROUTE
-  data1 = {name: word1name};
-  data2 = {name: word2name};
-  postData(data1, "words");
-  postData(data2, "words");
+function saveWordToDb(wordName){
+  data = {name: wordName};
+  postData(data, "words");
 }
 
 function postData(data, route){
@@ -65,12 +61,9 @@ function populateWord(){
   let allData = fetchData("words");
   allData.then(res => res.json())
   .then(json => {
-          let gameWord1 = document.getElementById("game-1-word");
-          let gameWord2 = document.getElementById("game-2-word")
-          let randomWord1 = json.data[Math.floor(Math.random()*json.data.length)];
-          let randomWord2 = json.data[Math.floor(Math.random()*json.data.length)];
-          gameWord1.value = randomWord1.attributes.name;
-          gameWord2.value = randomWord2.attributes.name;
+          let gameWord = document.getElementById("game-word");
+          let randomWord = json.data[Math.floor(Math.random()*json.data.length)];
+          gameWord.value = randomWord.attributes.name;
   });
 }
 
