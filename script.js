@@ -260,6 +260,7 @@ function matchWinnerHandler(round){
 function startRound2(){
   //document.getElementById("game-answer").remove();
   document.getElementById("start-next-round-button").remove();
+  document.getElementById('game-answer-div').innerHTML =""
   paintPickYourWords(2);
   context.clearRect(0,0, canvas.width, canvas.height);
 };
@@ -272,5 +273,6 @@ function anotherGame(){
   startGame();
   document.getElementById("start-another-game-button").remove();
   document.getElementById("punishment").remove();
+  document.getElementById('game-answer-div').innerHTML =""
 
 };
