@@ -26,7 +26,7 @@ width: 50%;
   margin-left: auto;
   margin-right: auto;
   transform: translate(-50%, -50%);
-  top: 55%;
+  top: 65%;
   left: 50%;
   text-align: center;
   font-size: 80px;
@@ -55,9 +55,8 @@ width: 50%;
 }
 
 
-
-
 #header-div h2{
+  height:65px;
  text-align: center;
  -webkit-box-sizing: content-box;
  -moz-box-sizing: content-box;
@@ -76,6 +75,7 @@ width: 50%;
 
 #header-div{
   text-align: center;
+  height: 100px;
 }
  #start-button{
   text-align: center;
@@ -141,7 +141,7 @@ width: 50%;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 55%;
+  top: 65%;
   left: 50%;
   text-align: center;
   transform: translate(-50%, -50%);
@@ -382,4 +382,11 @@ transition: all 0.4s ease 0s;
 #canvas-div{
   margin-bottom: 2px;
   height: 370px;
+}
+
+#answer-div{
+  font-size: 20px;
+  color: #9E1030;
+  text-align: center;
+  font-weight:bold;
 }

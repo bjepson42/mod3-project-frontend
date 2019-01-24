@@ -204,6 +204,7 @@ function toggleHidePassword(elementId) {
 
 
 function checkCompleteGame(){
+  let answerDiv = document.getElementById("answer-div")
   if (document.getElementById("game-answer").value != ""){
     document.getElementById("start-next-round-button").hidden = false;
     document.getElementById("submit-answer-button").hidden = true;
@@ -213,9 +214,9 @@ function checkCompleteGame(){
     let answer = document.getElementById('game-answer');
     let canvasDiv = document.getElementById('ready-set');
     if(title === answer){
-      canvasDiv.innerHTML = `You got it right!! Player ${"foo1"} wins. Player ${"foo2"} has to ${"punishment 1"}.`;
+      answerDiv.innerHTML = `You got it right!! Player ${"foo1"} wins. Player ${"foo2"} has to ${"punishment 1"}.`;
     } else {
-      canvasDiv.innerHTML = `Wrong! The answer was ${title.value}. Player ${"foo2"} wins. Player ${"foo1"} has to ${"punishment 1"}.`;
+      answerDiv.innerHTML = `Wrong! The answer was ${title.value}. Player ${"foo2"} wins. Player ${"foo1"} has to ${"punishment 1"}.`;
     };
   };
 }
