@@ -66,7 +66,7 @@ function paintPickYourPunishment(){
     <input type="text" name="product" list="betName" id="bet-name-list"/>
     <datalist id="betName">
     </datalist>
-  </div>`;
+  </div> <br>`;
   punishmentDiv.innerHTML = punishment;
   let buttonDiv = document.getElementById('pick-your-words-button-div');
   let button = `<button id="pick-your-words-button">Pick Your Words!</button>`;
