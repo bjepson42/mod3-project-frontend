@@ -22,7 +22,7 @@ width: 50%;
   text-align: center;
 }
 
-#competing-for-div{
+#punishment-div{
     text-align: center;
     display: block;
     margin-left: auto;
@@ -33,8 +33,14 @@ width: 50%;
   text-align: center;
 }
 
+#words-row-div{
+  text-align: center;
+}
+
+
 /*  try position: relative or position: absolute or try a span with display: inline-block*/
 #ready-set{
+  vertical-align: middle;
   text-align: center;
 }
 
@@ -47,7 +53,19 @@ width: 50%;
 
 }
 
-#button-div{
+#pick-your-punishment-button-div {
+  text-align: center;
+}
+
+#pick-your-words-button-div {
+  text-align: center;
+}
+
+#begin-game-button-div  {
+  text-align: center;
+}
+
+#button-div  {
   text-align: center;
 }
 

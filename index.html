@@ -10,10 +10,11 @@
   <body>
     <div id="header-div">
       <h2>Pictionary FOR PAIN</h2>
+      <button id="start-button">Start Game</button>
     </div>
     <div class="container">
       <div class="row" id="team-row-div">
-        <div class="col-md">
+        <!-- <div class="col-md">
         <h3>Team 1</h3>
           <input type="text" name="user1" list="selectUser1"/>
           <datalist id="selectUser1">
@@ -27,22 +28,44 @@
           <input type="text" name="user2" list="selectUser2"/>
           <datalist id="selectUser2">
           </datalist>
-        </div>
+        </div> -->
       </div>
-      <div class="row" id="competing-for-div">
-        <div>
+      <div id='pick-your-punishment-button-div'>
+      </div>
+      <div class="row" id="punishment-div">
+        <!-- <div id="punishment">
           <h3>Are Competing For:</h3>
           <input type="text" name="product" list="betName" id="bet-name-list"/>
           <datalist id="betName">
           </datalist>
+        </div> -->
+      </div>
+      <div id='pick-your-words-button-div'>
+      </div>
+      <div class="row" id="words-row-div">
+        <!-- <div class="col-md">
+        <h3>Team 1</h3>
+          <input type="text" name="user1" list="selectUser1"/>
+          <datalist id="selectUser1">
+          </datalist>
         </div>
+        <div class="col-sm">
+          <h2>VS.</h2>
+        </div>
+        <div class="col-md">
+        <h3>Team 2</h3>
+          <input type="text" name="user2" list="selectUser2"/>
+          <datalist id="selectUser2">
+          </datalist>
+        </div> -->
+      </div>
+      <div id='begin-game-button-div'>
       </div>
     </div>
     <br>
-    <!-- <input id="hex" placeholder="enter hex color"></input> -->
-<div id="ready-set"> </div>
+    <div id="game-div">
     <div id="canvas-div">
-
+      <div id="ready-set"></div>
       <canvas id="drawing-canvas"></canvas><br>
     </div>
     <div id="game-title-div">
@@ -53,7 +76,7 @@
       <input type="text" placeholder="Enter your answer here!" id="game-answer">
     </div>
     <div id='button-div'>
-      <button id="start-button">Start Game</button>
+      <button id="start-next-round-button">Start Next Round</button>
       <button id="submit-answer-button">Submit Answer</button>
     </div>
     <div>
@@ -61,8 +84,7 @@
       <button id="redraw-button">Redraw Drawing</button>
     </div>
     <div id="timer"></div>
-
-
+  </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
