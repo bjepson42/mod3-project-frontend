@@ -69,6 +69,14 @@ width: 50%;
   text-align: center;
 }
 
+#next-round-button-div  {
+  text-align: center;
+}
+
+#save-button-div  {
+  text-align: center;
+}
+
 #timer{
   text-align: center;
 }

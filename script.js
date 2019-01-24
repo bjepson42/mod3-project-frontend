@@ -1,4 +1,5 @@
 const lengthOfGame = 5; //length of game in seconds
+const words = [];
 
 //populateDropdowns();
 document.getElementById("start-next-round-button").hidden = true;
@@ -68,7 +69,7 @@ function paintPickYourPunishment(){
   </div>`;
   punishmentDiv.innerHTML = punishment;
   let buttonDiv = document.getElementById('pick-your-words-button-div');
-  let button = `<br><button id="pick-your-words-button">Pick Your Words!</button>`;
+  let button = `<button id="pick-your-words-button">Pick Your Words!</button>`;
   buttonDiv.innerHTML = button;
   buttonDiv.addEventListener("click", submitPickYourWords);
   populateCompetingForDropdown();
@@ -108,7 +109,7 @@ function paintPickYourWords(){
           </div>`;
   wordsRowDiv.innerHTML = wordsRow;
   let buttonDiv = document.getElementById('begin-game-button-div');
-  let button = `<br><button id="begin-game-button">Ready Team 1!</button>`;
+  let button = `<button id="begin-game-button">Ready Team 1!</button>`;
   buttonDiv.innerHTML = button;
   buttonDiv.addEventListener("click", beginGame);
   populateWord();
@@ -120,10 +121,11 @@ function beginGame(){
   if (game1Word.value === game2Word.value || game1Word.value === "" || game2Word.value === ""){
     alert("Select different team names!");
   } else {
-    game1Word.disabled = true;
-    game2Word.disabled = true;
+    words[0] = game1Word.value;
+    words[1] = game2Word.value;
+    document.getElementById("words-row-div").innerHTML = "";
     document.getElementById("begin-game-button").remove();
-    saveWordsToDb(game1Word.value, game2Word.value);
+    saveWordsToDb(words[0], words[1]);
     preTimer(3);
     paintBeginGame();
   }
