@@ -17,8 +17,8 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 width: 50%;
-
 }
+
 #times-up{
   font-size: 45px;
   text-align: center;
@@ -29,28 +29,29 @@ width: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#ready-set{
-  display: inline-block;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  width: 280px;
-  padding: 16px 0 0;
-  border: none;
-  font: normal 90px/0.65 "Squada One", Helvetica, sans-serif;
-  color: rgba(255,255,255,1);
-  text-align: center;
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  text-shadow: 5px 5px 0 rgba(188,188,188,1) ;
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
+#header-div h2{
+ text-align: center;
+ -webkit-box-sizing: content-box;
+ -moz-box-sizing: content-box;
+ box-sizing: content-box;
+ margin: 0 auto;
+ border: none;
+ font: normal 50px/normal "Anton", Helvetica, sans-serif;
+ color: rgb(112, 112, 112);
+ text-align: center;
+ text-transform: uppercase;
+ -o-text-overflow: clip;
+ text-overflow: clip;
+ letter-spacing: 10px;
+ text-shadow: 4px 4px 0 rgb(238,238,238) , 6px 6px 0 rgb(112,112,112) ;
 }
 
-#start-button{
+#header-div{
+  text-align: center;
+}
+ #start-button{
+  text-align: center;
   background:#1AAB8A;
   color:#fff;
   border:none;
@@ -85,172 +86,83 @@ width: 50%;
 #start-button:hover:before,#start-button:hover:after{
   width:100%;
   transition:800ms ease all;
-}
+} */
 
-#submit-answer-button{
-  background:#1AAB8A;
-  color:#fff;
-  border:none;
-  position:relative;
-  height:50px;
-  font-size:1.6em;
-  padding:0 2em;
-  cursor:pointer;
-  transition:800ms ease all;
-  outline:none;
-}
-#submit-answer-button:hover{
-  background:#fff;
-  color:#1AAB8A;
-}
-#submit-answer-button:before,button:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #1AAB8A;
-  transition:400ms ease all;
-}
-#submit-answer-button:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-#submit-answer-button:hover:before,#start-button:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
-
-a {
-    -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-    -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-    -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-    -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-    transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-    display: block;
-    margin: 20px auto;
-    max-width: 180px;
-    text-decoration: none;
-    border-radius: 4px;
-    padding: 20px 30px;
-}
-
-#save-button {
-  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  display: block;
-  margin: 20px auto;
-  max-width: 180px;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-    color: rgba(30, 22, 54, 0.6);
-    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
-}
-
-#save-button:hover {
-  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  /* display: block; */
-  margin: 20px auto;
-  max-width: 180px;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-    color: rgba(255, 255, 255, 0.85);
-    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
-}
-
-#redraw-button {
-  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  display: block;
-  margin: 20px auto;
-  max-width: 180px;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-    color: rgba(30, 22, 54, 0.6);
-    box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
-}
-
-#redraw-button:hover {
-  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-  /* display: block; */
-  margin: 20px auto;
-  max-width: 180px;
-  text-decoration: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-    color: rgba(255, 255, 255, 0.85);
-    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
-}
-
-
-
-
-#header-div{
-  text-align: center;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  margin: 0 auto;
-  border: none;
-  font: normal 50px/normal "Anton", Helvetica, sans-serif;
-  color: rgb(112, 112, 112);
-  text-align: center;
-  text-transform: uppercase;
-  -o-text-overflow: clip;
-  text-overflow: clip;
-  letter-spacing: 10px;
-  text-shadow: 4px 4px 0 rgb(238,238,238) , 6px 6px 0 rgb(112,112,112) ;
-}
-
-
-#competing-for-div{
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+#punishment-div{
+   text-align: center;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 #team-row-div{
-  text-align: center;
+ text-align: center;
+}
+
+#words-row-div{
+ text-align: center;
 }
 
 #ready-set{
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 280px;
+  padding: 16px 0 0;
+  border: none;
+  font: normal 90px/0.65 "Squada One", Helvetica, sans-serif;
+  color: rgba(255,255,255,1);
   text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  text-shadow: 5px 5px 0 rgba(188,188,188,1) ;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 
+
+
 #game-title-div{
-    text-align: center;
+   text-align: center;
 }
 
 #game-answer-div{
-  text-align: center;
+ text-align: center;
 
 }
 
-#button-div{
-  text-align: center;
+#pick-your-punishment-button-div {
+ text-align: center;
+}
+
+#pick-your-words-button-div {
+ text-align: center;
+}
+
+#begin-game-button-div  {
+ text-align: center;
+}
+
+#button-div  {
+ text-align: center;
+}
+
+#next-round-button-div  {
+ text-align: center;
+}
+
+#save-button-div  {
+ text-align: center;
 }
 
 #timer{
-  text-align: center;
+ text-align: center;
+}
+
+#punishment{
+  margin: 0 auto;
 }
