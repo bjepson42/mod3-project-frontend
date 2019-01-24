@@ -2,14 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Pictionary FOR PAIN</title>
+    <title>PictionDareMe</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div id="header-div">
-      <h2>Pictionary FOR PAIN</h2>
+      <h2>PictionDareMe</h2>
       <button id="start-button">Start Game</button>
     </div>
     <div class="container">
@@ -80,7 +80,11 @@
       <div id="canvas-div">
         <div id="ready-set"></div>
       <div id="times-up"></div>
+      <div id="answer-div"></div>
         <canvas id="drawing-canvas"></canvas><br>
+      </div>
+      <div id="timer-div">
+        <div id="timer"></div>
       </div>
       <!-- <div id="game-title-div">
         <input type="password" value="coffee mug" id="game-title">
@@ -97,8 +101,7 @@
         <button id="save-button">Save Drawing</button>
         <button id="redraw-button">Redraw Drawing</button>
       </div> -->
-      <div id="timer-div">
-        <div id="timer"></div>
+
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

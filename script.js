@@ -1,11 +1,15 @@
-const lengthOfGame = 5; //length of game in seconds
+const lengthOfGame = 2; //length of game in seconds
 let game = {};
 
-document.getElementById("start-button").addEventListener("click", function(){startGame()});
+document.getElementById("start-button").addEventListener("click", preStart);
 
-function startGame(event){
-  context.clearRect(0,0, canvas.width, canvas.height);
+function preStart(){
   document.getElementById("start-button").remove();
+  startGame();
+};
+
+function startGame(){
+  context.clearRect(0,0, canvas.width, canvas.height);
   paintTeams();
   game = {};
 }
@@ -31,7 +35,7 @@ function paintTeams(){
   teamRowDiv.innerHTML = teamRow;
 
   let buttonDiv = document.getElementById('pick-your-punishment-button-div');
-  let button = `<button id="pick-your-punishment-button">Pick Your Punishment!</button>`;
+  let button = `<button id="pick-your-punishment-button">Pick Your Dare!</button>`;
   buttonDiv.innerHTML = button;
   buttonDiv.addEventListener("click", submitPickYourPunishment);
   populateTeamDropdowns();
@@ -39,17 +43,17 @@ function paintTeams(){
 
 
 function submitPickYourPunishment(){
-  let team1Name = document.getElementById('user-1-input');
-  let team2Name = document.getElementById('user-2-input');
-  game.team1Name = team1Name.value;
-  game.team2Name = team2Name.value;
-  if (game.team1Name === game.team2Name || game.team1Name === "" || game.team2Name === ""){
+  let team_one_name = document.getElementById('user-1-input');
+  let team_two_name = document.getElementById('user-2-input');
+  game.team_one_name = team_one_name.value;
+  game.team_two_name = team_two_name.value;
+  if (game.team_one_name === game.team_two_name || game.team_one_name === "" || game.team_two_name === ""){
     alert("Select different team names!");
   } else {
-    team1Name.disabled = true;
-    team2Name.disabled = true;
+    team_one_name.disabled = true;
+    team_two_name.disabled = true;
     document.getElementById("pick-your-punishment-button").remove();
-    saveUsersToDb(team1Name.value, team2Name.value);
+    saveUsersToDb(team_one_name.value, team_two_name.value);
     paintPickYourPunishment();
   }
 };
@@ -65,7 +69,7 @@ function paintPickYourPunishment(){
   </div>`;
   punishmentDiv.innerHTML = punishment;
   let buttonDiv = document.getElementById('pick-your-words-button-div');
-  let button = `<button id="pick-your-words-button">Pick Your Words!</button>`;
+  let button = `<button id="pick-your-words-button">Pick Your Word, ${game.team_two_name}!</button>`;
   buttonDiv.innerHTML = button;
   buttonDiv.addEventListener("click", submitPickYourWords);
   populateCompetingForDropdown();
@@ -88,13 +92,13 @@ function submitPickYourWords(){
 
 function paintPickYourWords(teamNumber){
   if (teamNumber === 1) {
-    activeTeamName = game.team1Name;
-    otherTeamName = game.team2Name;
+    activeTeamName = game.team_one_name;
+    otherTeamName = game.team_two_name;
   } else {
-    activeTeamName = game.team2Name;
-    otherTeamName = game.team1Name;
+    activeTeamName = game.team_two_name;
+    otherTeamName = game.team_one_name;
   };
-
+  document.getElementById('ready-set').innerText = "";
   let wordsRowDiv = document.getElementById('words-row-div');
   let wordsRow = `<div class="col-md">
             <h3>${otherTeamName}, choose a challenge word: </h3>
@@ -113,7 +117,7 @@ function paintPickYourWords(teamNumber){
           // </div>`;
   wordsRowDiv.innerHTML = wordsRow;
   let buttonDiv = document.getElementById('begin-game-button-div');
-  let button = `<button id="begin-game-button">Ready to Draw, ${activeTeamName}!</button>`;
+  let button = `<button id="begin-game-button">Round ${teamNumber}. Get Ready to Draw, ${activeTeamName}!</button>`;
   buttonDiv.innerHTML = button;
   buttonDiv.addEventListener("click", beginDrawingRound);
   populateWord();
@@ -187,7 +191,8 @@ function startTimer(seconds){
       timerDiv.innerHTML = timeLeft + ' seconds remaining';
       startTimer(timeLeft - 1);
     } else {
-      timesUp.innerHTML = "Time's up! Enter your answer to see who suffers the consequences!";
+      timesUp.innerHTML = "Time's up!";
+      document.getElementById('timer').innerHTML = "";
       document.removeEventListener("mousemove", draw);
       document.removeEventListener("mousedown", setPosition);
       document.removeEventListener("mouseenter", setPosition);
@@ -215,32 +220,56 @@ function toggleHidePassword(elementId) {
 
 
 function checkCompleteGame(){
-  if (!game.match_1_winner){ //first round
+  //let answer = document.getElementById('game-answer');
+  if (document.getElementById('game-answer').value != ""){
+    document.getElementById('times-up').innerText = "";
 
-  } else if (!game.match_2_winner) { //second round
 
-  } else { //complete game
-
-  }
-
-  if (document.getElementById("game-answer").value != ""){
-    let buttonDiv = document.getElementById('next-round-button-div');
-    let button = `<button id="start-next-round-button">Start Next Round</button>`;
-    buttonDiv.innerHTML = button;
-    document.getElementById('start-next-round-button').addEventListener("click", startRound2);
-    let answer = document.getElementById('game-answer');
-    let canvasDiv = document.getElementById('ready-set');
-    if(game.word_one === answer){
-      game.match_1_winner = game.team1Name;
-      canvasDiv.innerHTML = `You got it right!! ${game.team1Name} wins. ${game.team2Name} has to ${game.bet}.`;
-    } else {
-      game.match_1_winner = game.team2Name;
-      canvasDiv.innerHTML = `Wrong! The answer was ${game.word_one}. ${game.team2Name} wins. ${game.team1Name} has to ${game.bet}.`;
+    if (!game.match_one_winner){ //first round end
+      let buttonDiv = document.getElementById('next-round-button-div');
+      let button = `<button id="start-next-round-button">Start Next Round</button>`;
+      buttonDiv.innerHTML = button;
+      document.getElementById('start-next-round-button').addEventListener("click", startRound2);
+      matchWinnerHandler("one");
+    } else { //second round end
+      let buttonDiv = document.getElementById('next-round-button-div');
+      let button = `<button id="start-another-game-button">Start Another Game</button>`;
+      buttonDiv.innerHTML = button;
+      document.getElementById('start-another-game-button').addEventListener("click", anotherGame);
+      matchWinnerHandler("two");
     };
+  };
+};
+
+function matchWinnerHandler(round){
+  let canvasDiv = document.getElementById('ready-set');
+  let gameWord = game.word_one;
+  if(game.word_two){ gameWord = game.word_two };
+
+  if(gameWord === document.getElementById('game-answer').value){
+    game.match_one_winner = game.team_one_name;
+    canvasDiv.innerHTML = `You got it right!! ${game.team_one_name} wins this round!`;
+  } else {
+    game.match_one_winner = game.team_two_name;
+    canvasDiv.innerHTML = `Wrong! The answer was ${game.word_one}. ${game.team_two_name} wins this round!`;
   };
 }
 
+
 function startRound2(){
+  document.getElementById("game-answer").remove();
+  document.getElementById("start-next-round-button").remove();
   paintPickYourWords(2);
   context.clearRect(0,0, canvas.width, canvas.height);
+};
+
+function completeGame(){
+
+};
+
+function anotherGame(){
+  startGame();
+  document.getElementById("start-another-game-button").remove();
+  document.getElementById("punishment").remove();
+
 };
