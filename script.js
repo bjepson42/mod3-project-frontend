@@ -127,6 +127,9 @@ function beginGame(){
     preTimer(3);
     paintBeginGame();
   }
+};
+
+function paintBeginGame(){
 
 
 };

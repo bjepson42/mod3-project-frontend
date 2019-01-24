@@ -4,7 +4,7 @@ function populateCompetingForDropdown(){
   .then(json => {
           let dataList = document.getElementById("betName");
         json.data.forEach(function(data){
-          let newOption = `<option>${data.attributes.bet}</option>`;
+          let newOption = `<option>${data.attributes.name}</option>`;
           dataList.innerHTML += newOption;
 
         })
@@ -21,7 +21,7 @@ function saveUsersToDb(user1name, user2name){
 }
 
 function saveBetToDb(betName){
-  data1 = {bet: betName};
+  data1 = {name: betName};
   postData(data1, "bets");
 }
 
