@@ -26,7 +26,7 @@ width: 50%;
   margin-left: auto;
   margin-right: auto;
   transform: translate(-50%, -50%);
-  top: 65%;
+  top: 50%;
   left: 50%;
   text-align: center;
   font-size: 80px;
@@ -57,6 +57,7 @@ width: 50%;
 
 #header-div h2{
   height:65px;
+  padding-top: 10px;
  text-align: center;
  -webkit-box-sizing: content-box;
  -moz-box-sizing: content-box;
@@ -141,17 +142,17 @@ width: 50%;
   margin-left: auto;
   margin-right: auto;
   position: absolute;
-  top: 65%;
+  top: 50%;
   left: 50%;
   text-align: center;
   transform: translate(-50%, -50%);
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
-  /* width: 280px; */
+  width: 280px;
   padding: 16px 0 0;
   border: none;
-  font: normal 30px/0.65 "Squada One", Helvetica, sans-serif;
+  font: normal 80px/0.65 "Squada One", Helvetica, sans-serif;
   color: rgba(255,255,255,1);
   -o-text-overflow: clip;
   text-overflow: clip;
@@ -270,6 +271,7 @@ width: 50%;
 
 
 #submit-answer-button{
+  position: relative;
  text-align: center;
  background:#1AAB8A;
  color:#fff;
@@ -283,12 +285,13 @@ width: 50%;
  outline:none;
 }
 #submit-answer-button:hover{
+  position: relative;
  background:#fff;
  color:#1AAB8A;
 }
 #submit-answer-button:before,button:after{
  content:'';
- position:absolute;
+ position:relative;
  top:0;
  right:0;
  height:2px;
@@ -297,12 +300,14 @@ width: 50%;
  transition:400ms ease all;
 }
 #submit-answer-button:after{
+  position:relative;
  right:inherit;
  top:inherit;
  left:0;
  bottom:0;
 }
 #submit-answer-button:hover:before,#start-button:hover:after{
+position:absolute;
  width:100%;
  transition:800ms ease all;
 }
@@ -375,13 +380,20 @@ transition: all 0.4s ease 0s;
 }
 
 #timer-div{
+  position:relative;
+  text-align: center;
   font-size: 20px;
   color: #9E1030;
 }
 
+#game-div{
+  position:relative;
+}
+
 #canvas-div{
+  position: relative;
   margin-bottom: 2px;
-  height: 370px;
+  margin-top:5px;
 }
 
 #answer-div{
@@ -389,4 +401,83 @@ transition: all 0.4s ease 0s;
   color: #9E1030;
   text-align: center;
   font-weight:bold;
+}
+
+#start-next-round-button{
+ text-align: center;
+ background:#1AAB8A;
+ color:#fff;
+ border:none;
+ position:relative;
+ height:50px;
+ font-size:1.6em;
+ padding:0 2em;
+ cursor:pointer;
+ transition:800ms ease all;
+ outline:none;
+}
+#start-next-round-button:hover{
+ background:#fff;
+ color:#1AAB8A;
+}
+#start-next-round-button:before,button:after{
+ content:'';
+ position:absolute;
+ top:0;
+ right:0;
+ height:2px;
+ width:0;
+ background: #1AAB8A;
+ transition:400ms ease all;
+}
+#start-next-round-button:after{
+ right:inherit;
+ top:inherit;
+ left:0;
+ bottom:0;
+}
+#start-next-round-button:hover:before,#start-button:hover:after{
+ width:100%;
+ transition:800ms ease all;
+}
+
+#game-answer{
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  width: 270px;
+  height: 30px;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  border: none;
+  -webkit-border-radius: 21px;
+  border-radius: 21px;
+  font: normal 20px/normal "Antic", Helvetica, sans-serif;
+  color: grey;
+  text-decoration: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: white;
+  -webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.5) inset;
+  box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.5) inset;
+  -webkit-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -moz-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -o-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+}
+
+#game-answer:hover {
+  color: grey;
+  background: white;
+  -webkit-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -moz-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -o-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
 }

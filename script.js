@@ -66,7 +66,7 @@ function paintPickYourPunishment(){
     <input type="text" name="product" list="betName" id="bet-name-list"/>
     <datalist id="betName">
     </datalist>
-  </div>`;
+  </div> <br>`;
   punishmentDiv.innerHTML = punishment;
   let buttonDiv = document.getElementById('pick-your-words-button-div');
   let button = `<button id="pick-your-words-button">Pick Your Word, ${game.team_two_name}!</button>`;
@@ -119,7 +119,7 @@ function paintPickYourWords(teamNumber){
   randomWordButton.addEventListener("click", function(){
     populateWord();
     randomWordButton.remove();
-    document.getElementById("game-word").disabled = true;
+    if (document.getElementById("game-word").value != "") {document.getElementById("game-word").disabled = true;};
   });
   populateWord();
 }
@@ -245,6 +245,7 @@ function checkCompleteGame(){
 
 function matchWinnerHandler(round){
   let canvasDiv = document.getElementById('ready-set');
+  let gameAnswerDiv = document.getElementById('game-answer-div')
   let gameWord = game.word_one;
   if(game.word_two){ gameWord = game.word_two };
 
@@ -277,8 +278,9 @@ function matchWinnerHandler(round){
 
 
 function startRound2(){
-  document.getElementById("game-answer").remove();
+  //document.getElementById("game-answer").remove();
   document.getElementById("start-next-round-button").remove();
+  document.getElementById('game-answer-div').innerHTML =""
   paintPickYourWords(2);
   context.clearRect(0,0, canvas.width, canvas.height);
 };
@@ -294,6 +296,7 @@ function anotherGame(){
   document.getElementById("game-answer").remove();
   document.getElementById("punishment").remove();
   document.getElementById("ready-set").innerHTML = "";
+
 
 };
 
