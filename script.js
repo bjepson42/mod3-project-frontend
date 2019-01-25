@@ -47,7 +47,6 @@ function populateSideBars(){
   let leftBar = document.getElementById('leftOfCanvasDiv');
   let rightBar = document.getElementById('rightOfCanvasDiv');
   usersObj.forEach(function(user){
-    debugger;
 
 
   })
@@ -262,6 +261,7 @@ function checkCompleteGame(){
 function matchWinnerHandler(round){
   let canvasDiv = document.getElementById('ready-set');
   let gameAnswer = toCamelCase(document.getElementById('game-answer').value);
+  let gameAnswerDiv = document.getElementById('game-answer-div')
   let gameWord = game.word_one;
   if(game.word_two){ gameWord = game.word_two };
 
@@ -282,14 +282,6 @@ function matchWinnerHandler(round){
       gameAnswerDiv.innerHTML = `Wrong! The answer was ${game.word_two}. ${game.team_one_name} wins this round!`;
     };
     completeGame();
-  } else { //round 3 placeholder //need to account for randominzed
-    // if(gameWord === document.getElementById('game-answer').value){
-    //   game.match_three_winner = game.team_one_name;
-    //   canvasDiv.innerHTML = `Correct! ${game.team_one_name} wins this round!`;
-    // } else {
-    //   game.match_three_winner = game.team_two_name;
-    //   canvasDiv.innerHTML = `Wrong! The answer was ${game.word_three}. ${game.team_two_name} wins this round!`;
-    // };
   }
 }
 
@@ -325,6 +317,7 @@ function anotherGame(){
   document.getElementById("game-answer").remove();
   document.getElementById("punishment").remove();
   document.getElementById("ready-set").innerHTML = "";
+  document.getElementById("game-answer-div").innerHTML="";
 
 };
 
