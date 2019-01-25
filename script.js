@@ -312,12 +312,12 @@ function completeGame(){
 };
 
 function anotherGame(){
+  document.getElementById("game-answer-div").innerHTML=""
   startGame();
   document.getElementById("start-another-game-button").remove();
   document.getElementById("game-answer").remove();
   document.getElementById("punishment").remove();
   document.getElementById("ready-set").innerHTML = "";
-  document.getElementById("game-answer-div").innerHTML="";
 
 };
 
