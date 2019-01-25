@@ -268,18 +268,18 @@ function matchWinnerHandler(round){
   if (round === "one"){
     if(toCamelCase(gameWord) === toCamelCase(gameAnswer)){
       game.match_one_winner = game.team_one_name;
-      canvasDiv.innerHTML = `Correct! ${game.team_one_name} wins this round!`;
+      gameAnswerDiv.innerHTML = `Correct! ${game.team_one_name} wins this round!`;
     } else {
       game.match_one_winner = game.team_two_name;
-      canvasDiv.innerHTML = `Wrong! The answer was ${game.word_one}. ${game.team_two_name} wins this round!`;
+      gameAnswerDiv.innerHTML = `Wrong! The answer was ${game.word_one}. ${game.team_two_name} wins this round!`;
     };
   } else if (round === "two"){
     if(toCamelCase(gameWord) === toCamelCase(gameAnswer)){
       game.match_two_winner = game.team_two_name;
-      canvasDiv.innerHTML = `Correct! ${game.team_two_name} wins this round!`;
+      gameAnswerDiv.innerHTML = `Correct! ${game.team_two_name} wins this round!`;
     } else {
       game.match_two_winner = game.team_one_name;
-      canvasDiv.innerHTML = `Wrong! The answer was ${game.word_two}. ${game.team_one_name} wins this round!`;
+      gameAnswerDiv.innerHTML = `Wrong! The answer was ${game.word_two}. ${game.team_one_name} wins this round!`;
     };
     completeGame();
   } else { //round 3 placeholder //need to account for randominzed
@@ -325,7 +325,6 @@ function anotherGame(){
   document.getElementById("game-answer").remove();
   document.getElementById("punishment").remove();
   document.getElementById("ready-set").innerHTML = "";
-
 
 };
 
