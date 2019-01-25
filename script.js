@@ -108,18 +108,19 @@ function paintPickYourWords(teamNumber){
           <input type="checkbox" onclick="toggleHidePassword('game-word')">
           <datalist id="selectWord">
           </datalist>
+          <button id="random-word-button">Random Word</button>
           </div>`;
-          // <div class="col-md">
-          //   <input type="password" name="word2" list="selectWord2" id="game-2-word">
-          //   <input type="checkbox" onclick="toggleHidePassword('game-2-word')">
-          //   <datalist id="selectWord2">
-          //   </datalist>
-          // </div>`;
   wordsRowDiv.innerHTML = wordsRow;
   let buttonDiv = document.getElementById('begin-game-button-div');
   let button = `<button id="begin-game-button">Round ${teamNumber}. Get Ready to Draw, ${activeTeamName}!</button>`;
+  let randomWordButton = document.getElementById('random-word-button')
   buttonDiv.innerHTML = button;
   buttonDiv.addEventListener("click", beginDrawingRound);
+  randomWordButton.addEventListener("click", function(){
+    populateWord();
+    randomWordButton.remove();
+    document.getElementById("game-word").disabled = true;
+  });
   populateWord();
 }
 
@@ -224,18 +225,19 @@ function checkCompleteGame(){
   if (document.getElementById('game-answer').value != ""){
     document.getElementById('times-up').innerText = "";
 
-
     if (!game.match_one_winner){ //first round end
       let buttonDiv = document.getElementById('next-round-button-div');
       let button = `<button id="start-next-round-button">Start Next Round</button>`;
       buttonDiv.innerHTML = button;
       document.getElementById('start-next-round-button').addEventListener("click", startRound2);
+      document.getElementById("game-answer").hidden = true;
       matchWinnerHandler("one");
     } else { //second round end
       let buttonDiv = document.getElementById('next-round-button-div');
       let button = `<button id="start-another-game-button">Start Another Game</button>`;
       buttonDiv.innerHTML = button;
       document.getElementById('start-another-game-button').addEventListener("click", anotherGame);
+      document.getElementById("game-answer").hidden = true;
       matchWinnerHandler("two");
     };
   };
@@ -246,13 +248,31 @@ function matchWinnerHandler(round){
   let gameWord = game.word_one;
   if(game.word_two){ gameWord = game.word_two };
 
-  if(gameWord === document.getElementById('game-answer').value){
-    game.match_one_winner = game.team_one_name;
-    canvasDiv.innerHTML = `You got it right!! ${game.team_one_name} wins this round!`;
-  } else {
-    game.match_one_winner = game.team_two_name;
-    canvasDiv.innerHTML = `Wrong! The answer was ${game.word_one}. ${game.team_two_name} wins this round!`;
-  };
+  if (round === "one"){
+    if(gameWord === document.getElementById('game-answer').value){
+      game.match_one_winner = game.team_one_name;
+      canvasDiv.innerHTML = `Correct! ${game.team_one_name} wins this round!`;
+    } else {
+      game.match_one_winner = game.team_two_name;
+      canvasDiv.innerHTML = `Wrong! The answer was ${game.word_one}. ${game.team_two_name} wins this round!`;
+    };
+  } else if (round === "two"){
+    if(gameWord === document.getElementById('game-answer').value){
+      game.match_two_winner = game.team_two_name;
+      canvasDiv.innerHTML = `Correct! ${game.team_two_name} wins this round!`;
+    } else {
+      game.match_two_winner = game.team_one_name;
+      canvasDiv.innerHTML = `Wrong! The answer was ${game.word_two}. ${game.team_one_name} wins this round!`;
+    };
+  } else { //round 3 placeholder //need to account for randominzed
+    if(gameWord === document.getElementById('game-answer').value){
+      game.match_three_winner = game.team_one_name;
+      canvasDiv.innerHTML = `Correct! ${game.team_one_name} wins this round!`;
+    } else {
+      game.match_three_winner = game.team_two_name;
+      canvasDiv.innerHTML = `Wrong! The answer was ${game.word_three}. ${game.team_two_name} wins this round!`;
+    };
+  }
 }
 
 
@@ -264,12 +284,20 @@ function startRound2(){
 };
 
 function completeGame(){
-
+  ///put save game info here
 };
 
 function anotherGame(){
+  debugger
   startGame();
   document.getElementById("start-another-game-button").remove();
+  document.getElementById("game-answer").remove();
   document.getElementById("punishment").remove();
+  document.getElementById("ready-set").innerHTML = "";
 
 };
+
+//all inputs titleize
+///game save
+//save pictures
+//game cards
