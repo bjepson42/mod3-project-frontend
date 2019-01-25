@@ -53,14 +53,38 @@ function draw(e) {
 function saveDrawing(){
    //currently creates png and opens a new window
      let canvas = document.getElementById("drawing-canvas");
-     //let data = canvas.toDataURL("image/png");
-     let data = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-     canvas.setAttribute("href", data);
+     let data = canvas.toDataURL("image/png");
+     let file = dataToBlob(data);
+     var fd = new FormData();
+
+     fd.append("image", file);
+
+     $.ajax({
+       url: "/screenshot",
+       type: "POST",
+       data: fd,
+       processData: false,
+       contentType: false
+
+     })
+
+     //let data = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+     //canvas.setAttribute("href", data);
      //Save file locally
-     localStorage
-     // let newWindow = window.open('about:blank','image from canvas');
-     // newWindow.document.write("<img src='"+data+"' alt='from canvas'/>");
+     debugger
+     //This pops new window so it can be saved in localStorage
+     //let newWindow = window.open('about:blank','image from canvas');
+     //newWindow.document.write("<img src='"+data+"' alt='from canvas'/>");
 };
+
+// function dataToBlob(data){
+//   let bin = atob(dataURL.split(,)[1]);
+//   let array = [];
+//   for(let i = 0; i < bin.length; i++){
+//     array.push(bin.charCodeAt(i));
+//   }
+//   return new Blob([new Uint8Array(array)], {type: 'image/png'});
+// };
 
 function redrawLastDrawing(e){
  context.clearRect(0,0, canvas.width, canvas.height);

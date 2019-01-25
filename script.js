@@ -1,7 +1,9 @@
 const lengthOfGame = 2; //length of game in seconds
 let game = {};
+let usersObj = {};
 
 document.getElementById("start-button").addEventListener("click", preStart);
+document.getElementById("save-button").addEventListener("click", saveDrawing);
 
 function preStart(){
   document.getElementById("start-button").remove();
@@ -41,19 +43,31 @@ function paintTeams(){
   populateTeamDropdowns();
 };
 
+function populateSideBars(){
+  let leftBar = document.getElementById('leftOfCanvasDiv');
+  let rightBar = document.getElementById('rightOfCanvasDiv');
+  usersObj.forEach(function(user){
+    debugger;
+
+
+  })
+
+
+};
+
 
 function submitPickYourPunishment(){
   let team_one_name = document.getElementById('user-1-input');
   let team_two_name = document.getElementById('user-2-input');
-  game.team_one_name = team_one_name.value;
-  game.team_two_name = team_two_name.value;
+  game.team_one_name = toCamelCase(team_one_name.value);
+  game.team_two_name = toCamelCase(team_two_name.value);
   if (game.team_one_name === game.team_two_name || game.team_one_name === "" || game.team_two_name === ""){
     alert("Select different team names!");
   } else {
     team_one_name.disabled = true;
     team_two_name.disabled = true;
     document.getElementById("pick-your-punishment-button").remove();
-    saveUsersToDb(team_one_name.value, team_two_name.value);
+    saveUsersToDb(game.team_one_name, game.team_two_name);
     paintPickYourPunishment();
   }
 };
@@ -84,7 +98,8 @@ function submitPickYourWords(){
     betName.disabled = true;
     game.bet = betName.value
     document.getElementById("pick-your-words-button").remove();
-    saveBetToDb(betName.value);
+    let dataToSave = toCamelCase(betName.value);
+    saveBetToDb(dataToSave);
     paintPickYourWords(1);
   }
 
@@ -137,7 +152,8 @@ function beginDrawingRound(){
     };
     document.getElementById("words-row-div").innerHTML = "";
     document.getElementById("begin-game-button").remove();
-    saveWordToDb(gameWord);
+    let dataToSave = toCamelCase(gameWord.value);
+    saveWordToDb(dataToSave);
     preTimer(3);
     paintBeginGame();
   }
@@ -245,12 +261,12 @@ function checkCompleteGame(){
 
 function matchWinnerHandler(round){
   let canvasDiv = document.getElementById('ready-set');
-  let gameAnswerDiv = document.getElementById('game-answer-div')
+  let gameAnswer = toCamelCase(document.getElementById('game-answer').value);
   let gameWord = game.word_one;
   if(game.word_two){ gameWord = game.word_two };
 
   if (round === "one"){
-    if(gameWord === document.getElementById('game-answer').value){
+    if(toCamelCase(gameWord) === toCamelCase(gameAnswer)){
       game.match_one_winner = game.team_one_name;
       gameAnswerDiv.innerHTML = `Correct! ${game.team_one_name} wins this round!`;
     } else {
@@ -258,21 +274,22 @@ function matchWinnerHandler(round){
       gameAnswerDiv.innerHTML = `Wrong! The answer was ${game.word_one}. ${game.team_two_name} wins this round!`;
     };
   } else if (round === "two"){
-    if(gameWord === document.getElementById('game-answer').value){
+    if(toCamelCase(gameWord) === toCamelCase(gameAnswer)){
       game.match_two_winner = game.team_two_name;
       gameAnswerDiv.innerHTML = `Correct! ${game.team_two_name} wins this round!`;
     } else {
       game.match_two_winner = game.team_one_name;
       gameAnswerDiv.innerHTML = `Wrong! The answer was ${game.word_two}. ${game.team_one_name} wins this round!`;
     };
+    completeGame();
   } else { //round 3 placeholder //need to account for randominzed
-    if(gameWord === document.getElementById('game-answer').value){
-      game.match_three_winner = game.team_one_name;
-      gameAnswerDiv.innerHTML = `Correct! ${game.team_one_name} wins this round!`;
-    } else {
-      game.match_three_winner = game.team_two_name;
-      gameAnswerDiv.innerHTML = `Wrong! The answer was ${game.word_three}. ${game.team_two_name} wins this round!`;
-    };
+    // if(gameWord === document.getElementById('game-answer').value){
+    //   game.match_three_winner = game.team_one_name;
+    //   canvasDiv.innerHTML = `Correct! ${game.team_one_name} wins this round!`;
+    // } else {
+    //   game.match_three_winner = game.team_two_name;
+    //   canvasDiv.innerHTML = `Wrong! The answer was ${game.word_three}. ${game.team_two_name} wins this round!`;
+    // };
   }
 }
 
@@ -287,10 +304,22 @@ function startRound2(){
 
 function completeGame(){
   ///put save game info here
+  if (game.match_one_winner === game.match_two_winner){
+  game.winner = game.match_one_winner;
+  if (game.winner === game.team_one_name){
+    game.loser = game.team_two_name;
+  } else {
+    game.loser = game.team_one_name;
+  };
+  delete game.match_one_winner;
+  delete game.match_two_winner;
+  delete game.team_one_name;
+  delete game.team_two_name;
+  saveGameToDb(game);
+  };
 };
 
 function anotherGame(){
-  debugger
   startGame();
   document.getElementById("start-another-game-button").remove();
   document.getElementById("game-answer").remove();
@@ -299,7 +328,30 @@ function anotherGame(){
 
 };
 
-//all inputs titleize
-///game save
+function toCamelCase(str) {
+  var lower = String(str).toLowerCase();
+  return lower.replace(/(^| )(\w)/g, function(x) {
+    return x.toUpperCase();
+  });
+}
+
+game2 = {word_one_id: 1,
+          word_two_id: 2,
+          winner_id: 1,
+          loser_id: 2,
+          bet_id: 1,
+          drawing_one_id: 1,
+          drawing_two_id: 2
+        }
+
+game4 = {word_one_id: 1,
+          word_two_id: 2,
+          winner_id: 1,
+          loser_id: 2,
+          bet_id: 1
+        }
+
+//don't allow click submit too early
 //save pictures
 //game cards
+//delete words??
